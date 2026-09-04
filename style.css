@@ -1,0 +1,456 @@
+body {
+    margin: 0px;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+header {
+    background-color: #e60012;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    padding-left: 20px;
+}
+
+header h1, header h2, header a {
+    color: aliceblue;
+}
+
+header h2, header a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+header h2 {
+    font-size: 0.8rem;
+}
+
+.header-titulo h1 {
+    font-family: 'Inter', sans-serif;
+}
+
+.anc-button::before {
+    content: "▼";
+    font-size: 0.8rem;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.navigation_buttons {
+    display: flex;
+    gap: 100px;
+    padding-right: 50px;
+}
+
+.navigation_buttons a {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo_header {
+    width: 400px;
+    height: auto;
+    padding-left: 70px;
+}
+
+.subtitle {
+    margin-top: -15px;
+    opacity: 0.9;
+}
+
+.sobre-conteudo {
+    width: 100%;
+    height: 100%;
+    background-color: #e60012;
+    border-radius: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    overflow-y: auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 4px solid gray;
+}
+
+.sobre-conteudo::-webkit-scrollbar {
+    display: none;
+}
+
+.sobre-conteudo h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.sobre-conteudo p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+.sobre-conteudo ul {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin:  10px 0px 15px 20px;
+    display: block;
+    overflow-x: visible;
+    scroll-snap-type: none;
+}
+
+.sobre-conteudo li {
+    flex: none;
+    height: auto;
+    display: list-item;
+    scroll-snap-type: none;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    background-color: transparent;
+}
+
+ul {
+    width: 90vw;
+    height: 500px;
+    padding: 20px 0;
+    padding-left: calc((90vw - 60vw) / 2);
+    padding-right: calc((90vw - 60vw) / 2);
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0 auto;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    box-sizing: border-box;
+    anchor-name: --carrossel;
+}
+
+ul::scroll-marker-group {
+    position: absolute;
+    position-anchor: --carrossel;
+    top: calc(anchor(bottom) - 70px);
+    justify-self: anchor-center;
+}
+
+ul::-webkit-scrollbar {
+    display: none;
+}
+
+li {
+    flex: 0 0 60vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: center;
+    box-sizing: border-box;
+}
+
+li img {
+    border: none;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carrossel h1 {
+    font-family: sans-serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    color:darkslategray;
+    text-align: center;
+    margin-bottom: -10px;
+    position: relative;
+}
+
+.slide-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+
+
+.carrossel-button {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.carrossel-button::hover {
+    background-color: rgba(0,0,0,0.5);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.buttonAnt {
+    left: 20px;
+}
+
+.buttonNext {
+    right: 20px;
+}
+
+.legenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 20px;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-align: center;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.slide-container:hover .legenda {
+    opacity: 1;
+}
+
+
+
+.sobre-detalhes {
+    width: 100vw;
+    margin: 60px auto;
+    background-color: #e60012;
+    padding: 60px 0;
+    box-sizing: border-box;
+}
+
+.sobre-detalhes > h2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.sobre-bloco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.sobre-bloco:last-child {
+    margin-bottom: 0;
+}
+
+.sobrebloco.inverso {
+    flex-direction: row-reverse;
+}
+
+.sobre-texto h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.sobre-texto p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7rem;
+    color: white;
+    margin: 0;
+    text-align: justify;
+}
+
+.sobre-imagem {
+    height: 280px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.sobre-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.programacao-detalhada {
+    width: 90vw;
+    max-width: 1000px;
+    margin: 60px auto;
+    font-family: 'Inter', sans-serif;
+}
+
+.programacao-detalhada h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    color: darkslategray;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.agenda-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.agenda-card {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 2px solid gray;
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.horario {
+    background-color: #e60012;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    padding: 15px;
+    border-radius: 6px;
+    min-width: 80px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.agenda-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: darkslategray;
+    margin-bottom: 5px;
+}
+
+.agenda-info p {
+    font-size: 0.9rem;
+    color: gray;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.colaboradores-section {
+    width: 90vw;
+    max-width: 1000px;
+    margin: 60px auto;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+}
+
+.colaboradores-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    color: darkslategray;
+    margin-bottom: 30px;
+}
+
+.colaboradores-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background: white;
+    border: 2px solid gray;
+    border-radius: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.colaborador-logo {
+    width: 160px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkgray;
+    border: 1px dashed gray;
+    border-radius: 6px;
+    color: #555555;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.colaborador-logo img {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+}
+
+footer {
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+footer h2{
+    color: aliceblue;
+    font-size: 1.5rem;
+}
+
+footer p {
+    color: aliceblue;
+    font-size: 0.8rem;
+}
+
+.footer_legenda {
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+.contacts {
+    display: flex;
+    justify-content: center;
+    gap: 300px;
+}
+
+.img-display {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.img-display img {
+    width: 20px;
+    height: 20px;
+}
